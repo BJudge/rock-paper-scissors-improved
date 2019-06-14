@@ -1,30 +1,32 @@
 require_relative 'player'
+require_relative 'computerplayer'
 
 class Game
 
   KEY_BEATS_VALUE = { rock: :scissors, scissors: :paper, paper: :rock }
 
-  attr_reader :player
+  attr_reader :player, :computer
 
-  def initialize(player_name)
-    @player = Player.new(player_name)
+  def initialize(player_name, computer)
+    @player = Player.create(player_name)
+    @computer = ComputerPlayer.create(computer)
   end
 
-  def self.create(player_1)
-    @game = Game.new(player_1)
+  def self.create(player_1, computer= 'Computer')
+    @game = Game.new(player_1, computer)
   end
 
   def self.instance
     @game
   end
 
-  def self.player_action(throw)
-    @throw = throw.downcase.to_sym
-  end
+  #def self.player_action(throw)
+  #  @throw = throw.downcase.to_sym
+  #end
 
-  def self.computer_action
-    KEY_BEATS_VALUE.keys.sample
-  end
+  #def self.computer_action
+  #  KEY_BEATS_VALUE.keys.sample
+  #end
 
   def self.game_result(player_choice)
     KEY_BEATS_VALUE[player_choice]
@@ -34,5 +36,5 @@ class Game
     KEY_BEATS_VALUE.key?(player_choice)
   end
 
-  
+
 end

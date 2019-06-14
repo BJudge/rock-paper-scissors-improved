@@ -14,4 +14,13 @@ class Player
   def self.instance
     @player
   end
+
+  def self.player_action(throw)
+    @throw = throw.downcase.to_sym
+  end
+
+  def self.choice
+    @throw
+  end
+
 end

@@ -7,7 +7,7 @@ class Game
 
   attr_reader :player, :computer
 
-  def initialize(player_name, computer)
+  def initialize(player_name, computer='Computer')
     @player = Player.create(player_name)
     @computer = ComputerPlayer.create(computer)
   end
@@ -20,14 +20,6 @@ class Game
     @game
   end
 
-  #def self.player_action(throw)
-  #  @throw = throw.downcase.to_sym
-  #end
-
-  #def self.computer_action
-  #  KEY_BEATS_VALUE.keys.sample
-  #end
-
   def self.game_result(player_choice)
     KEY_BEATS_VALUE[player_choice]
   end
@@ -35,6 +27,4 @@ class Game
   def self.erroneous_hand(player_choice)
     KEY_BEATS_VALUE.key?(player_choice)
   end
-
-
 end

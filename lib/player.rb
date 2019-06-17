@@ -1,6 +1,6 @@
 
 class Player
-    attr_reader :name
+    attr_reader :name, :throw
 
   def initialize(player)
     @name = player
@@ -15,8 +15,8 @@ class Player
     @player
   end
 
-  def self.player_action(throw)
-    @throw = throw.downcase.to_sym
+  def self.player_action(choice)
+    @throw = choice.downcase.to_sym
   end
 
   def self.choice

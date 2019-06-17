@@ -1,3 +1,4 @@
+# I still need to test the ComputerPlayer class - stubbing a singleton class
 
 for game_spec use a mock with a fixed response, eg
 double { turn :rock}
@@ -23,8 +24,3 @@ it 'does not release broken bikes' do
   subject.dock bike
   expect {subject.release_bike}.to raise_error 'No bikes available'
 end
-
-do not display on a post method
-
-CREATE A NEW GAME METHOD, THAT RESETS THE CLASS VARIABLES OF EACH USER HAND/THROW/GO.
-STORE EACH USERS HAND AS A CLASS/SELF METHOD VARIABLE
